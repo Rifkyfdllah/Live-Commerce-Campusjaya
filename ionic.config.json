@@ -1,0 +1,7 @@
+{
+  "name": "LiveCommerce",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

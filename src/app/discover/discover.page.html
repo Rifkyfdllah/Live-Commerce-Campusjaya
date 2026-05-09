@@ -1,0 +1,54 @@
+<ion-header class="discover-header" [translucent]="true">
+  <ion-toolbar>
+    <ion-searchbar
+      class="discover-search"
+      mode="ios"
+      placeholder="Temukan toko favorit anda..."
+      animated="true"
+      showClearButton="focus"
+      (click)="onSearch()"
+    >
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="discover-content">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let stream of streams; trackBy: trackByStreamId">
+        <div class="live-card fade-in" (click)="goToLive(stream.id)">
+          <img [src]="stream.thumbnailUrl" [alt]="stream.title" class="thumb" loading="lazy" />
+
+          <div class="overlay">
+            <img [src]="stream.hostAvatarUrl" [alt]="stream.hostName" class="avatar" />
+            <div class="meta">
+              <h3 class="live-title">{{ stream.title }}</h3>
+              <p class="host-name">{{ stream.hostName }}</p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll threshold="120px" (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Memuat live baru...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+<ion-footer class="bottom-nav">
+  <ion-toolbar>
+    <div class="nav-wrap">
+      <button type="button" class="nav-btn" aria-label="Beranda">
+        <ion-icon [icon]="homeOutline"></ion-icon>
+      </button>
+      <button type="button" class="nav-btn" aria-label="Keranjang">
+        <ion-icon [icon]="bagHandleOutline"></ion-icon>
+      </button>
+      <button type="button" class="nav-btn" aria-label="Profil">
+        <ion-icon [icon]="personOutline"></ion-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

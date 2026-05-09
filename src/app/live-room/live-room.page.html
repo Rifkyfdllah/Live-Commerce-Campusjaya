@@ -1,0 +1,80 @@
+<ion-header class="room-header" [translucent]="true">
+  <!-- <ion-toolbar></ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true" class="room-content">
+  <div class="video-shell">
+    <iframe
+      [src]="safeVideoUrl"
+      title="Live Stream Player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      frameborder="0"
+    ></iframe>
+
+    <div class="room-overlay top">
+      <div class="host-chip">
+        <img [src]="hostAvatar" [alt]="hostName" />
+        <div class="host-meta">
+          <p class="label">LIVE NOW</p>
+          <h3>{{ hostName }}</h3>
+        </div>
+      </div>
+
+      <button class="close-btn" type="button" aria-label="Close room" (click)="closeRoom()">
+        <ion-icon [icon]="closeOutline"></ion-icon>
+      </button>
+    </div>
+      <div class="product-floating room-overlay">
+        <img [src]="currentProduct.image" [alt]="currentProduct.name" />
+        <div class="product-meta">
+          <h4>{{ currentProduct.name }}</h4>
+          <p>Rp {{ currentProduct.price | number }}</p>
+        </div>
+        <button type="button" (click)="buyNow(currentProduct)">Beli</button>
+      </div>
+  </div>
+</ion-content>
+  <div class="chat-floating room-overlay">
+    <div class="chat-list">
+      <div class="chat-item" *ngFor="let message of messages; trackBy: trackByMessageIndex">
+        <img [src]="message.avatar" [alt]="message.user" />
+        <p><span>{{ message.user }}:</span> {{ message.text }}</p>
+      </div>
+    </div>
+  </div>
+
+
+<ion-footer class="room-footer">
+  <ion-toolbar>
+    <div class="interaction-bar">
+      <ion-input
+        class="message-input"
+        fill="outline"
+        mode="md"
+        placeholder="Kirim pesan..."
+        [(ngModel)]="draftMessage"
+        (keyup.enter)="sendMessage()"
+      ></ion-input>
+
+      <ion-button class="send-btn" fill="solid" (click)="sendMessage()" aria-label="Kirim pesan">
+        <ion-icon [icon]="sendOutline"></ion-icon>
+      </ion-button>
+
+      <ion-button class="cart-btn" fill="clear" (click)="toggleProductList()" aria-label="Buka daftar produk">
+        <ion-icon [icon]="cartOutline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+
+  <div class="product-list" *ngIf="isProductListOpen">
+    <div class="list-item" *ngFor="let product of products; trackBy: trackByProductId">
+      <img [src]="product.image" [alt]="product.name" />
+      <div>
+        <h5>{{ product.name }}</h5>
+        <p>Rp {{ product.price | number }}</p>
+      </div>
+      <button type="button" (click)="buyNow(product)">Beli</button>
+    </div>
+  </div>
+</ion-footer>
