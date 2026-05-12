@@ -57,14 +57,14 @@ export class DiscoverPage {
   private readonly allStreams: LiveStream[] = [
     {
       id: 1,
-      thumbnailUrl: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80',
+      thumbnailUrl: 'https://img.youtube.com/vi/J7tekVDdUhg/hqdefault.jpg',
       hostAvatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
       hostName: 'Glowista Official',
       title: 'Flash Sale Skincare Korea, harga mulai 19K!',
     },
     {
       id: 2,
-      thumbnailUrl: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
+      thumbnailUrl: 'https://img.youtube.com/vi/IUDITWG5Xuc/hqdefault.jpg',
       hostAvatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
       hostName: 'UrbanWear Hub',
       title: 'Styling OOTD Gen Z, diskon jaket up to 60%',

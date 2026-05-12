@@ -39,9 +39,9 @@ export class LiveRoomPage implements OnInit {
 
   currentProduct: LiveProduct = {
     id: 301,
-    name: 'Serum Bright Glow 30ml',
-    price: 79000,
-    image: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=400&q=80',
+    name: 'VIVO 12 Promagh',
+    price: 2399944,
+    image: 'https://i.ibb.co.com/Hf5f7B9V/properti-HP.webp',
   };
 
   products: LiveProduct[] = [
@@ -72,13 +72,13 @@ export class LiveRoomPage implements OnInit {
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80',
     },
     {
-      user: 'Abdul',
+      user: 'Bahlul',
       text: 'Gantenk?',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
     },
     {
-      user: 'Aldy',
-      text: 'Alamak Jomoknya',
+      user: 'Eko',
+      text: 'Busettt mahal amat',
       avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80',
     },
   ];
