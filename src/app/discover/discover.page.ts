@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import {
   IonCol,
   IonContent,
@@ -16,6 +17,7 @@ import {
 } from '@ionic/angular/standalone';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { bagHandleOutline, homeOutline, personOutline } from 'ionicons/icons';
+import { FormsModule } from '@angular/forms';
 
 interface LiveStream {
   id: number;
@@ -43,6 +45,8 @@ interface LiveStream {
     IonCol,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
+    FormsModule,
+    RouterLink,
   ],
 })
 export class DiscoverPage {

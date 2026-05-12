@@ -1,0 +1,128 @@
+<ion-header class="cart-header" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/discover" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Keranjang
+      <ion-badge *ngIf="!isEmpty" class="cart-badge">{{ totalItems }}</ion-badge>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="cart-content">
+
+  <!-- === EMPTY STATE === -->
+  <div *ngIf="isEmpty" class="empty-state">
+    <div class="empty-illustration">
+      <div class="empty-cart-icon">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+      </div>
+      <div class="empty-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <h2 class="empty-title">Wah, keranjangmu masih kosong!</h2>
+    <p class="empty-subtitle">Yuk, temukan produk favoritmu dan mulai berbelanja sekarang</p>
+    <ion-button
+      routerLink="/tabs/discover"
+      class="start-shopping-btn"
+      expand="block"
+      shape="round">
+      <ion-icon name="storefront-outline" slot="start"></ion-icon>
+      Mulai Belanja
+    </ion-button>
+  </div>
+
+  <!-- === CART ITEMS LIST === -->
+  <div *ngIf="!isEmpty" class="cart-list-wrapper">
+
+    <div class="section-label">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span>{{ totalItems }} produk dipilih</span>
+    </div>
+
+    <ion-list class="cart-list" lines="none">
+      <ion-item-sliding *ngFor="let item of cartItems; trackBy: trackById" class="cart-slide-item">
+
+        <!-- Swipe Left: Delete -->
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="removeItem(item.id)" class="delete-option">
+            <ion-icon name="trash-outline" slot="top"></ion-icon>
+            Hapus
+          </ion-item-option>
+        </ion-item-options>
+
+        <!-- Cart Item Card -->
+        <ion-item class="cart-item" lines="none">
+          <div class="cart-card">
+
+            <!-- Product Image -->
+            <div class="product-image-wrap">
+              <img [src]="item.image" [alt]="item.name" class="product-img" />
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+              <div class="product-header">
+                <div class="shop-name">
+                  <ion-icon name="storefront-outline"></ion-icon>
+                  {{ item.shopName }}
+                </div>
+                <button class="remove-btn" (click)="confirmRemove(item.id)" aria-label="Hapus produk">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </button>
+              </div>
+
+              <p class="product-name">{{ item.name }}</p>
+              <span class="product-variant">{{ item.variant }}</span>
+
+              <div class="product-footer">
+                <span class="product-price">{{ formatPrice(item.price) }}</span>
+
+                <!-- Quantity Selector -->
+                <div class="qty-selector">
+                  <button
+                    class="qty-btn qty-minus"
+                    (click)="decrementQty(item.id)"
+                    [class.danger]="item.qty === 1"
+                    aria-label="Kurangi jumlah">
+                    <ion-icon [name]="item.qty === 1 ? 'trash-outline' : 'remove-circle-outline'"></ion-icon>
+                  </button>
+                  <span class="qty-value">{{ item.qty }}</span>
+                  <button
+                    class="qty-btn qty-plus"
+                    (click)="incrementQty(item.id)"
+                    aria-label="Tambah jumlah">
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </ion-item>
+
+      </ion-item-sliding>
+    </ion-list>
+
+    <!-- Spacer for footer -->
+    <div class="footer-spacer"></div>
+
+  </div>
+
+</ion-content>
+
+<!-- === STICKY CHECKOUT BAR === -->
+<ion-footer *ngIf="!isEmpty" class="checkout-footer">
+  <div class="checkout-bar">
+    <div class="price-summary">
+      <span class="price-label">Total Pembayaran</span>
+      <span class="price-total">{{ formatPrice(getTotalPrice()) }}</span>
+    </div>
+    <button class="checkout-btn" (click)="onCheckout()">
+      <span>Checkout</span>
+      <span class="checkout-count">({{ totalItems }})</span>
+    </button>
+  </div>
+</ion-footer>
