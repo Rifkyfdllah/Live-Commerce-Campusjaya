@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then((m) => m.LoginPage),
+    loadComponent: () => import('./auth/login/login.page').then((m) => m.LoginPage),
   },
   {
     path: 'home',
@@ -25,5 +25,9 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'discover',
     pathMatch: 'full',
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./auth/register/register.page').then( m => m.RegisterPage)
   },
 ];

@@ -10,6 +10,7 @@ import {
 
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular'
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ import { IonicModule } from '@ionic/angular'
   imports: [
     CommonModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class LoginPage implements OnInit {

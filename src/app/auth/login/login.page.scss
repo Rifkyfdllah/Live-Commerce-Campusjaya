@@ -65,9 +65,22 @@
   }
 
   p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
     line-height: 1.5;
+    position: relative;
+    z-index: 10; /* Biar link aman dari tabrakan element lain */
+  }
+
+  a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 .logo-container {

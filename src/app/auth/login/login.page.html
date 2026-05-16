@@ -26,7 +26,7 @@
     </div>
 
     <p>
-        <b>Belum punya akun? </b> <u>Daftar Sekarang!</u>
+        <b>Don't have an account yet? </b> <a routerLink="/register">Register here</a>
     </p>
 
     </div>
@@ -50,7 +50,7 @@
           class="error-text"
           *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
         >
-          Email tidak valid
+          Emal is invalid
         </small>
 
         <!-- Password Field -->
@@ -80,7 +80,7 @@
           class="error-text"
           *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
         >
-          Password minimal 6 karakter
+          Password of at least 6 characters
         </small>
 
         <!-- Login Button -->
@@ -96,7 +96,7 @@
 
       <!-- Divider -->
       <div class="divider">
-        <span>atau lanjut dengan</span>
+        <span>Or continue with</span>
       </div>
 
       <!-- Google OAuth Button -->
@@ -108,7 +108,7 @@
           src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
           alt="Google"
         />
-        <span>Login dengan Google</span>
+        <span>Google</span>
       </button>
 
     </div>
