@@ -3,17 +3,18 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import {
-  IonCol,
-  IonContent,
-  IonFooter,
-  IonGrid,
-  IonHeader,
+  IonHeader, 
+  IonToolbar, 
+  IonSearchbar, 
+  IonContent, 
+  IonGrid, 
+  IonRow, 
+  IonCol, 
+  IonInfiniteScroll, 
+  IonInfiniteScrollContent, 
+  IonFooter, 
   IonIcon,
-  IonInfiniteScroll,
-  IonInfiniteScrollContent,
-  IonRow,
-  IonSearchbar,
-  IonToolbar,
+  IonButtons
 } from '@ionic/angular/standalone';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { bagHandleOutline, homeOutline, personOutline } from 'ionicons/icons';
@@ -33,6 +34,8 @@ interface LiveStream {
   styleUrls: ['./discover.page.scss'],
   standalone: true,
   imports: [
+    RouterLink,
+    IonButtons,
     CommonModule,
     IonHeader,
     IonToolbar,

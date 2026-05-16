@@ -3,6 +3,7 @@
   --card-radius: 16px;
 }
 
+
 .discover-header ion-toolbar {
   --background: rgba(13, 13, 18, 0.92);
   --border-color: transparent;
@@ -163,4 +164,55 @@ ion-col {
 
 .nav-btn:active {
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* Tambahan styling untuk tombol pojok kanan atas */
+.top-auth-toolbar {
+  --background: transparent; /* Mengikuti background header lo */
+  --min-height: 35px; /* Dibuat agak tipis biar gak makan tempat */
+  padding-right: 8px;
+}
+
+.auth-links-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-link {
+  color: #60a5fa; /* Warna biru cerah, samakan dengan tema TokoGenZ */
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.auth-divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+}
+
+/* Tambahan styling untuk judul toko di pojok kiri atas */
+.brand-title {
+  color: #7171ff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding-left: 16px; /* Jarak pas dari pinggir layar kiri */
+  display: flex;
+  align-items: center;
+}
+
+/* Modifikasi sedikit toolbar atas biar konten kiri & kanan sinkron */
+.top-auth-toolbar {
+  --background: transparent;
+  --min-height: 40px; /* Dinaikin dikit biar space teksnya lega */
+  padding-right: 8px;
 }

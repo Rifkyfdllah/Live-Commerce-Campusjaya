@@ -1,4 +1,17 @@
 <ion-header class="discover-header" [translucent]="true">
+  
+  <ion-toolbar class="top-auth-toolbar">
+    <div slot="start" class="brand-title">
+      TokoGenZ
+    </div>
+
+    <ion-buttons slot="end" class="auth-links-wrap">
+      <a routerLink="/register" class="auth-link font-semibold">Register</a>
+      <span class="auth-divider">|</span>
+      <a routerLink="/login" class="auth-link font-semibold">Sign In</a>
+    </ion-buttons>
+  </ion-toolbar>
+
   <ion-toolbar>
     <ion-searchbar
       class="discover-search"
@@ -10,6 +23,7 @@
     >
     </ion-searchbar>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true" class="discover-content">
